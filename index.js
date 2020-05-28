@@ -9,7 +9,7 @@ function recognize(filename, config = {}) {
   if (config.debug) log("command", command)
 
   return new Promise((resolve, reject) => {
-    exec(command, {encoding: 'binary'}, (error, stdout, stderr) => {
+    exec(command, {encoding: 'buffer'}, (error, stdout, stderr) => {
       if (config.debug) log(stderr)
       if (error) reject(error)
       resolve(stdout)
