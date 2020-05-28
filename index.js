@@ -9,7 +9,7 @@ function recognize(filename, config = {}) {
   if (config.debug) log("command", command)
 
   return new Promise((resolve, reject) => {
-    exec(command, {encoding: 'buffer', maxBuffer: (1024x1024x128)}, (error, stdout, stderr) => {
+    exec(command, {encoding: 'buffer', maxBuffer: 134217728}, (error, stdout, stderr) => {
       if (config.debug) log(stderr)
       if (error) reject(error)
       resolve(stdout)
